@@ -9,9 +9,9 @@ void showArray(int *l, int *r){
 }
 
 void bubbleSort(int *l, int *r){
-  for (int *j=(r-1); j>=l; j--){
+  for (int *j=r; j>=l; j--){
     for (int *i=l; i<j; i++){
-      if (*i>*(i-1)){
+      if (*i>*(i+1)){
         int tmp=*i;
         *i=*(i+1);
         *(i+1)=tmp;
