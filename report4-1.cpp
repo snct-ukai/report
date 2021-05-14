@@ -14,7 +14,7 @@ unsigned strcharcount(char *str,char c){
 }
 
 int main(){
-    char str[20]="ABCDBEFGGIJB";
+    char str[20]="ABCDBEFGGGIJB";
     cout << strcharcount(str,'A') << endl;
     cout << strcharcount(str,'B') << endl;
     cout << strcharcount(str+4,'B') << endl;
