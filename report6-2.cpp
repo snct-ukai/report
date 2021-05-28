@@ -30,7 +30,7 @@ void showCalender(Date d){
     for(int i = week-1;i > 0;i--){
         cout << "   ";
     }
-    for(int i = d.day;i<=31;i++){
+    for(int i = 1;i<=31;i++){
         if(!(week + i - 2% 7)){
             cout << "\x1b[33m";
         }
