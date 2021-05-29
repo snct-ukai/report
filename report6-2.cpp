@@ -24,13 +24,47 @@ Week GetWeek(const Date& d){
 	return date;
 }
 
-void showCalender(Date d){
-	d.day = 1;
-	int week = static_cast<int>(GetWeek(d));
+int havedays(const Date& d){
+	int days;
+	switch(d.month){
+		case 2:
+			if (d.year % 4 == 0) {
+   				if (d.year % 100 == 0) {
+     				if (d.year % 400 == 0) {
+						 days = 29;
+     				} else {
+						 days = 28;
+     				}
+   				} else {
+					   days = 29;
+   				}
+ 			} else {
+				 days = 28;
+ 			}
+			break;
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			days = 31;
+			break;
+		default:
+			days = 30;
+	}
+	return days;
+}
+
+void showCalender(const Date& d){
+	Date date = d;
+	date.day = 1;
+	int week = static_cast<int>(GetWeek(date));
 	for(int i = week; i > 0; i--){
 	cout << "   ";
 	}
-	for(int i = 1; i <= 31; i++){
+	for(int i = 1; i <= havedays(date); i++){
 		if(!((week + i - 1) % 7)){
 			cout << "\x1b[31m" << endl;
 		}
